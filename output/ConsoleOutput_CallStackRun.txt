@@ -1,0 +1,10 @@
+main : first
+main : second
+Thread-0 : third
+Exception in thread "Thread-0" java.lang.RuntimeException: I messed up twice!
+    at com.sxnamit.jtd.basics.CallStack.third(CallStack.java:39)
+    at com.sxnamit.jtd.basics.CallStack.run(CallStack.java:11)
+Exception in thread "main" java.lang.RuntimeException: I messed up once!
+    at com.sxnamit.jtd.basics.CallStack.second(CallStack.java:33)
+    at com.sxnamit.jtd.basics.CallStack.first(CallStack.java:20)
+    at com.sxnamit.jtd.basics.CallStack.main(CallStack.java:15)

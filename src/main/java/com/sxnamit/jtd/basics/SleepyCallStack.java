@@ -2,8 +2,8 @@ package com.sxnamit.jtd.basics;
 
 // Program creates two threads, both are put to sleep.
 // When the threads go to TIMED_WAITING (sleeping) state,
-// capture the thread dump. Both call stacks will be there
-// in the thread dump.
+// capture the thread dump. Both stacktraces (or call stacks)
+// will be there in the thread dump.
 public class SleepyCallStack extends Thread {
 
     @Override
@@ -30,8 +30,8 @@ public class SleepyCallStack extends Thread {
 
         try {
             Thread.sleep(600000); // 10min
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
         }
     }
 
@@ -42,7 +42,7 @@ public class SleepyCallStack extends Thread {
         try {
             Thread.sleep(600000); // 10min
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
     }
 }

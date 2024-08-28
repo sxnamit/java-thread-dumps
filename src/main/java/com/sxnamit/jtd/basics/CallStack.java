@@ -1,7 +1,7 @@
 package com.sxnamit.jtd.basics;
 
 // Program creates two threads, both fail with an exception.
-// Both stacktraces are individually printed on the console.
+// Both stacktraces (or call stacks) are individually printed on the console.
 // Demonstrates the idea of one call stack per thread or
 // one thread per call stack.
 public class CallStack extends Thread {
@@ -26,8 +26,8 @@ public class CallStack extends Thread {
         t.start();
         try {
             Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
         }
 
         throw new RuntimeException("I messed up once!");

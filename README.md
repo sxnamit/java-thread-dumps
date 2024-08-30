@@ -80,12 +80,41 @@ jps spec - https://docs.oracle.com/en/java/javase/21/docs/specs/man/jps.html
 - Thread state, indicates what the thread was doing at the time thread dump was taken. JVM assigned state, not OS. Correlate with the last method call in the stack trace.
 - Thread call stack or stack trace.
 
-#####Note:
+##### Note:
 Note: Formats could vary between different JVM implementations ([e.g.](https://bugs.openjdk.org/browse/JDK-8200720)); we are using Open JDK here. Format also depends on the command used to generate the thread dump. For example, jstack strips the heap report; SIGQUIT doesn’t.
 
 #### Thread states
-TBD...
+//TODO  
 
+Let's take a look at some problems that can be troubleshot with thread dumps.
+#### Problem 1: Thread leak
+A thread leak occurs when an application continuously creates threads but fails to terminate or properly manage them, leading to an accumulation of unused alive threads over time. As these threads accumulate, they consume system resources such as memory, CPU, and thread pool limits, eventually leading to application performance degradation, resource exhaustion or even application crashes.
+
+##### Symptoms of thread leak
+- Increased memory usage  
+    As more threads are created, the application's memory usage also grows.
+- High CPU usage  
+    A large number of threads can lead to excessive context switching and CPU usage.
+- Application slowness or unresponsiveness  
+    The application might become sluggish or unresponsive due to resource exhaustion.
+- OutOfMemoryError  
+    The JVM might throw an OutOfMemoryError due to the inability to create new native threads.
+- Thread exhaustion
+    The application might run out of available threads if a fixed-size thread pool is used.
+
+##### Troubleshooting a thread leak using Java thread dumps
+- Identify growing number of threads  
+  Take multiple thread dumps at regular intervals (e.g., every 5 or 10 minutes) and compare them to see if the number of threads is increasing over time.
+- Look for repeated stack traces  
+  If you see many threads with identical or very similar stack traces across thread dumps, it may indicate a thread leak. The threads might be stuck in the same method or code block.  
+Once the unused threads are identified, it's just a matter of looking at the respective stacktraces and analysing the method and the line of source code where the threads seem stuck.
+
+##### Demo
+Please refer class com.sxnamit.jtd.basicsThreadLeakDemo  
+Sample thread dumps can be found under threaddumps directory.
+
+#### Problem 2: High CPU Usage
+//TODO
 
 
 

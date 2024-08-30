@@ -1,0 +1,368 @@
+2024-08-30 19:52:28
+Full thread dump OpenJDK 64-Bit Server VM (21.0.2+13-58 mixed mode, sharing):
+
+Threads class SMR info:
+_java_thread_list=0x0000600002fe8bc0, length=47, elements={
+0x000000014a009400, 0x0000000149060000, 0x0000000149060800, 0x0000000149061000,
+0x0000000138808200, 0x0000000138808a00, 0x0000000149063c00, 0x0000000149064400,
+0x000000014a04d800, 0x0000000148809200, 0x0000000148814a00, 0x0000000148815200,
+0x000000014a134c00, 0x000000014882b000, 0x000000013f008200, 0x000000013f00ac00,
+0x000000013f80a400, 0x000000013f80ac00, 0x000000013f80b400, 0x000000013f00b400,
+0x000000013f00bc00, 0x000000013f80bc00, 0x000000013f80c400, 0x000000013f80cc00,
+0x000000013f008a00, 0x000000013f00c400, 0x000000013f009200, 0x000000013f009a00,
+0x000000013f80d400, 0x000000013f00a200, 0x000000013f808200, 0x000000013f00f400,
+0x000000013f00fc00, 0x000000013f808a00, 0x000000013f809200, 0x000000013f809a00,
+0x000000013f81fe00, 0x000000013f820600, 0x000000013f010400, 0x000000013f010c00,
+0x000000013f830e00, 0x000000013f831600, 0x000000013f834000, 0x000000013f011400,
+0x000000013f011c00, 0x000000013f831e00, 0x000000013f832600
+}
+
+"main" #1 [10499] prio=5 os_prio=31 cpu=125.27ms elapsed=33.19s tid=0x000000014a009400 nid=10499 waiting on condition  [0x000000016bd12000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo.main(ThreadLeakDemo.java:18)
+
+"Reference Handler" #9 [32003] daemon prio=10 os_prio=31 cpu=0.09ms elapsed=33.17s tid=0x0000000149060000 nid=32003 waiting on condition  [0x000000016cf16000]
+   java.lang.Thread.State: RUNNABLE
+	at java.lang.ref.Reference.waitForReferencePendingList(java.base@21.0.2/Native Method)
+	at java.lang.ref.Reference.processPendingReferences(java.base@21.0.2/Reference.java:246)
+	at java.lang.ref.Reference$ReferenceHandler.run(java.base@21.0.2/Reference.java:208)
+
+"Finalizer" #10 [31491] daemon prio=8 os_prio=31 cpu=0.10ms elapsed=33.17s tid=0x0000000149060800 nid=31491 in Object.wait()  [0x000000016d122000]
+   java.lang.Thread.State: WAITING (on object monitor)
+	at java.lang.Object.wait0(java.base@21.0.2/Native Method)
+	- waiting on <0x000000061fc01730> (a java.lang.ref.NativeReferenceQueue$Lock)
+	at java.lang.Object.wait(java.base@21.0.2/Object.java:366)
+	at java.lang.Object.wait(java.base@21.0.2/Object.java:339)
+	at java.lang.ref.NativeReferenceQueue.await(java.base@21.0.2/NativeReferenceQueue.java:48)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.2/ReferenceQueue.java:158)
+	at java.lang.ref.NativeReferenceQueue.remove(java.base@21.0.2/NativeReferenceQueue.java:89)
+	- locked <0x000000061fc01730> (a java.lang.ref.NativeReferenceQueue$Lock)
+	at java.lang.ref.Finalizer$FinalizerThread.run(java.base@21.0.2/Finalizer.java:173)
+
+"Signal Dispatcher" #11 [23043] daemon prio=9 os_prio=31 cpu=0.39ms elapsed=33.17s tid=0x0000000149061000 nid=23043 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Service Thread" #12 [30723] daemon prio=9 os_prio=31 cpu=0.05ms elapsed=33.17s tid=0x0000000138808200 nid=30723 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Monitor Deflation Thread" #13 [23555] daemon prio=9 os_prio=31 cpu=2.98ms elapsed=33.17s tid=0x0000000138808a00 nid=23555 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"C2 CompilerThread0" #14 [30211] daemon prio=9 os_prio=31 cpu=45.44ms elapsed=33.17s tid=0x0000000149063c00 nid=30211 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+"C1 CompilerThread0" #17 [23811] daemon prio=9 os_prio=31 cpu=47.62ms elapsed=33.17s tid=0x0000000149064400 nid=23811 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+   No compile task
+
+"Common-Cleaner" #18 [29443] daemon prio=8 os_prio=31 cpu=0.14ms elapsed=33.16s tid=0x000000014a04d800 nid=29443 waiting on condition  [0x000000016dd6a000]
+   java.lang.Thread.State: TIMED_WAITING (parking)
+	at jdk.internal.misc.Unsafe.park(java.base@21.0.2/Native Method)
+	- parking to wait for  <0x000000061fc42b88> (a java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject)
+	at java.util.concurrent.locks.LockSupport.parkNanos(java.base@21.0.2/LockSupport.java:269)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(java.base@21.0.2/AbstractQueuedSynchronizer.java:1847)
+	at java.lang.ref.ReferenceQueue.await(java.base@21.0.2/ReferenceQueue.java:71)
+	at java.lang.ref.ReferenceQueue.remove0(java.base@21.0.2/ReferenceQueue.java:143)
+	at java.lang.ref.ReferenceQueue.remove(java.base@21.0.2/ReferenceQueue.java:218)
+	at jdk.internal.ref.CleanerImpl.run(java.base@21.0.2/CleanerImpl.java:140)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+	at jdk.internal.misc.InnocuousThread.run(java.base@21.0.2/InnocuousThread.java:186)
+
+"JDWP Transport Listener: dt_socket" #19 [24067] daemon prio=10 os_prio=31 cpu=11.07ms elapsed=33.15s tid=0x0000000148809200 nid=24067 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"JDWP Event Helper Thread" #20 [28931] daemon prio=10 os_prio=31 cpu=10.20ms elapsed=33.15s tid=0x0000000148814a00 nid=28931 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"JDWP Command Reader" #21 [28419] daemon prio=10 os_prio=31 cpu=7.12ms elapsed=33.15s tid=0x0000000148815200 nid=28419 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Notification Thread" #22 [24835] daemon prio=9 os_prio=31 cpu=0.06ms elapsed=33.03s tid=0x000000014a134c00 nid=24835 runnable  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Thread-0" #23 [28163] prio=5 os_prio=31 cpu=1.72ms elapsed=33.01s tid=0x000000014882b000 nid=28163 waiting on condition  [0x000000016e7a6000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-1" #24 [25603] prio=5 os_prio=31 cpu=1.57ms elapsed=32.01s tid=0x000000013f008200 nid=25603 waiting on condition  [0x000000016e9b2000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-2" #25 [26115] prio=5 os_prio=31 cpu=1.41ms elapsed=31.00s tid=0x000000013f00ac00 nid=26115 waiting on condition  [0x000000016ebbe000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-3" #26 [27907] prio=5 os_prio=31 cpu=1.81ms elapsed=30.00s tid=0x000000013f80a400 nid=27907 waiting on condition  [0x000000016edca000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-4" #27 [26627] prio=5 os_prio=31 cpu=1.34ms elapsed=28.99s tid=0x000000013f80ac00 nid=26627 waiting on condition  [0x000000016efd6000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-5" #28 [26883] prio=5 os_prio=31 cpu=0.93ms elapsed=27.99s tid=0x000000013f80b400 nid=26883 waiting on condition  [0x000000016f1e2000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-6" #29 [19207] prio=5 os_prio=31 cpu=0.88ms elapsed=26.98s tid=0x000000013f00b400 nid=19207 waiting on condition  [0x000000016f3ee000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-7" #30 [22279] prio=5 os_prio=31 cpu=0.75ms elapsed=25.98s tid=0x000000013f00bc00 nid=22279 waiting on condition  [0x000000016f5fa000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-8" #31 [43267] prio=5 os_prio=31 cpu=0.83ms elapsed=24.98s tid=0x000000013f80bc00 nid=43267 waiting on condition  [0x000000016f806000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-9" #32 [33283] prio=5 os_prio=31 cpu=1.12ms elapsed=23.97s tid=0x000000013f80c400 nid=33283 waiting on condition  [0x000000016fa12000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Attach Listener" #33 [33795] daemon prio=9 os_prio=31 cpu=2.20ms elapsed=23.68s tid=0x000000013f80cc00 nid=33795 waiting on condition  [0x0000000000000000]
+   java.lang.Thread.State: RUNNABLE
+
+"Thread-10" #34 [42755] prio=5 os_prio=31 cpu=1.03ms elapsed=22.97s tid=0x000000013f008a00 nid=42755 waiting on condition  [0x000000016fe2a000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-11" #35 [34051] prio=5 os_prio=31 cpu=1.30ms elapsed=21.96s tid=0x000000013f00c400 nid=34051 waiting on condition  [0x0000000170036000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-12" #36 [41987] prio=5 os_prio=31 cpu=0.82ms elapsed=20.96s tid=0x000000013f009200 nid=41987 waiting on condition  [0x0000000170242000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-13" #37 [41731] prio=5 os_prio=31 cpu=0.81ms elapsed=19.96s tid=0x000000013f009a00 nid=41731 waiting on condition  [0x000000017044e000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-14" #38 [34819] prio=5 os_prio=31 cpu=0.55ms elapsed=18.96s tid=0x000000013f80d400 nid=34819 waiting on condition  [0x000000017065a000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-15" #39 [41219] prio=5 os_prio=31 cpu=0.74ms elapsed=17.95s tid=0x000000013f00a200 nid=41219 waiting on condition  [0x0000000170866000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-16" #40 [35075] prio=5 os_prio=31 cpu=0.55ms elapsed=16.95s tid=0x000000013f808200 nid=35075 waiting on condition  [0x0000000170a72000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-17" #41 [40707] prio=5 os_prio=31 cpu=0.70ms elapsed=15.94s tid=0x000000013f00f400 nid=40707 waiting on condition  [0x0000000170c7e000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-18" #42 [40451] prio=5 os_prio=31 cpu=0.86ms elapsed=14.94s tid=0x000000013f00fc00 nid=40451 waiting on condition  [0x0000000170e8a000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-19" #43 [35843] prio=5 os_prio=31 cpu=0.73ms elapsed=13.93s tid=0x000000013f808a00 nid=35843 waiting on condition  [0x0000000171096000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-20" #44 [39939] prio=5 os_prio=31 cpu=0.66ms elapsed=12.93s tid=0x000000013f809200 nid=39939 waiting on condition  [0x00000001712a2000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-21" #45 [39427] prio=5 os_prio=31 cpu=0.53ms elapsed=11.92s tid=0x000000013f809a00 nid=39427 waiting on condition  [0x00000001714ae000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-22" #46 [36611] prio=5 os_prio=31 cpu=0.53ms elapsed=10.92s tid=0x000000013f81fe00 nid=36611 waiting on condition  [0x00000001716ba000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-23" #47 [38915] prio=5 os_prio=31 cpu=0.57ms elapsed=9.91s tid=0x000000013f820600 nid=38915 waiting on condition  [0x00000001718c6000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-24" #48 [38659] prio=5 os_prio=31 cpu=0.43ms elapsed=8.91s tid=0x000000013f010400 nid=38659 waiting on condition  [0x0000000171ad2000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-25" #49 [38403] prio=5 os_prio=31 cpu=0.54ms elapsed=7.90s tid=0x000000013f010c00 nid=38403 waiting on condition  [0x0000000171cde000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-26" #50 [38147] prio=5 os_prio=31 cpu=0.46ms elapsed=6.90s tid=0x000000013f830e00 nid=38147 waiting on condition  [0x0000000171eea000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-27" #51 [37635] prio=5 os_prio=31 cpu=0.45ms elapsed=5.89s tid=0x000000013f831600 nid=37635 waiting on condition  [0x00000001720f6000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-28" #52 [65283] prio=5 os_prio=31 cpu=0.52ms elapsed=4.89s tid=0x000000013f834000 nid=65283 waiting on condition  [0x0000000172302000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-29" #53 [64771] prio=5 os_prio=31 cpu=0.41ms elapsed=3.88s tid=0x000000013f011400 nid=64771 waiting on condition  [0x000000017250e000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-30" #54 [64515] prio=5 os_prio=31 cpu=0.42ms elapsed=2.88s tid=0x000000013f011c00 nid=64515 waiting on condition  [0x000000017271a000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-31" #55 [44035] prio=5 os_prio=31 cpu=0.45ms elapsed=1.87s tid=0x000000013f831e00 nid=44035 waiting on condition  [0x0000000172926000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"Thread-32" #56 [64003] prio=5 os_prio=31 cpu=0.42ms elapsed=0.87s tid=0x000000013f832600 nid=64003 waiting on condition  [0x0000000172b32000]
+   java.lang.Thread.State: TIMED_WAITING (sleeping)
+	at java.lang.Thread.sleep0(java.base@21.0.2/Native Method)
+	at java.lang.Thread.sleep(java.base@21.0.2/Thread.java:509)
+	at com.sxnamit.jtd.basics.ThreadLeakDemo$LeakyTask.run(ThreadLeakDemo.java:32)
+	at java.lang.Thread.runWith(java.base@21.0.2/Thread.java:1596)
+	at java.lang.Thread.run(java.base@21.0.2/Thread.java:1583)
+
+"VM Thread" os_prio=31 cpu=3.13ms elapsed=33.18s tid=0x000000014870db50 nid=18691 runnable  
+
+"GC Thread#0" os_prio=31 cpu=0.03ms elapsed=33.19s tid=0x0000000148707a60 nid=14595 runnable  
+
+"G1 Main Marker" os_prio=31 cpu=0.02ms elapsed=33.19s tid=0x0000000148708200 nid=12803 runnable  
+
+"G1 Conc#0" os_prio=31 cpu=0.02ms elapsed=33.19s tid=0x0000000148708b70 nid=13827 runnable  
+
+"G1 Refine#0" os_prio=31 cpu=0.02ms elapsed=33.19s tid=0x000000014905ee00 nid=16387 runnable  
+
+"G1 Service" os_prio=31 cpu=1.13ms elapsed=33.19s tid=0x00000001487094d0 nid=21507 runnable  
+
+"VM Periodic Task Thread" os_prio=31 cpu=16.59ms elapsed=33.18s tid=0x000000014870af90 nid=17667 waiting on condition  
+
+JNI global refs: 68, weak refs: 51
